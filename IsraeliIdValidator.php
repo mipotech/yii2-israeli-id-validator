@@ -2,6 +2,7 @@
 
 namespace mipotech\yii2israelidvalidator;
 
+use Yii;
 use yii\validators\Validator;
 
 /**
@@ -60,7 +61,7 @@ if (value.length < 5) {
     messages.push('{$errorMessages['tooShort']}');
 } else if (value.length > 9) {
     messages.push('{$errorMessages['tooLong']}');
-} else if (//.test(value)) {
+} else if (/[^0-9]/.test(value)) {
     messages.push('{$errorMessages['invalidChars']}');
 }
 
@@ -73,7 +74,7 @@ if (paddedValue.length < 9) {
 
 var mone = 0, incNum;
 for (var i=0; i < 9; i++) {
-    incNum = Number(IDnum.charAt(i));
+    incNum = Number(paddedValue.charAt(i));
     incNum *= (i%2)+1;
     if (incNum > 9) {
          incNum -= 9;
