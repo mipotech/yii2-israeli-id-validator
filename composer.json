@@ -1,0 +1,21 @@
+{
+    "name": "mipotech/yii2-israeli-id-validator",
+    "description": "Yii2 Israeli ID Validator",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","israel","teudat zehut","תעודת זהות","validator","validation"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chaim Leichman",
+            "email": "chaim@mipo.co.il"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "mipotech\\yii2israelidvalidator\\": ""
+        }
+    }
+}
