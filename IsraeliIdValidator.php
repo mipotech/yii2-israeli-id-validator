@@ -17,6 +17,20 @@ class IsraeliIdValidator extends Validator
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        parent::init();
+
+        Yii::$app->i18n->translations['tzvalidator'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'basePath' => "@vendor/mipotech/yii2-israeli-id-validator/messages",
+            'forceTranslation' => true,
+        ];
+    }
+    
+    /**
+     * @inheritdoc
+     */
     public function validateAttribute($model, $attribute)
     {
         $value = $model->$attribute;
