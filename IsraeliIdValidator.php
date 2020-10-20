@@ -15,6 +15,23 @@ use yii\validators\Validator;
 class IsraeliIdValidator extends Validator
 {
     /**
+     * @var string custom error message for invalid checksum
+     */
+    public $messageInvalidChecksum;
+    /**
+     * @var string custom error message for invalid characters
+     */
+    public $messageInvalidChars;
+    /**
+     * @var string custom error message for number too long
+     */
+    public $messageTooLong;
+    /**
+     * @var string custom error message for number too short
+     */
+    public $messageTooShort;
+    
+    /**
      * @inheritdoc
      */
     public function init()
@@ -111,10 +128,10 @@ EOF;
     protected function getErrorMessages(): array
     {
         return [
-            'invalidChecksum' => Yii::t('tzvalidator', 'ID number is not valid'),
-            'invalidChars' => Yii::t('tzvalidator', 'ID number must include only digits'),
-            'tooLong' => Yii::t('tzvalidator', 'ID number must be no more than 9 digits'),
-            'tooShort' => Yii::t('tzvalidator', 'ID number must be at least 5 digits'),
+            'invalidChecksum' => $this->messageInvalidChecksum ?: Yii::t('tzvalidator', 'ID number is not valid'),
+            'invalidChars' => $this->messageInvalidChars ?: Yii::t('tzvalidator', 'ID number must include only digits'),
+            'tooLong' => $this->messageTooLong ?: Yii::t('tzvalidator', 'ID number must be no more than 9 digits'),
+            'tooShort' => $this->messageTooShort ?: Yii::t('tzvalidator', 'ID number must be at least 5 digits'),
         ];
     }
 }
